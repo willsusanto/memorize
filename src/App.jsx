@@ -40,7 +40,40 @@ function App() {
       completed: false,
     },
   ]);
-  const [openedCardsCounter, setOpenedCardsCounter] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const openedCards = cards.filter(
+        (card) => card.opened && !card.completed
+      );
+
+      if (openedCards.length == 2) {
+        const [firstCard, secondCard] = openedCards;
+
+        if (firstCard.description === secondCard.description) {
+          setCards((currentCard) =>
+            currentCard.map((card) => {
+              if (card.id === firstCard.id || card.id === secondCard.id) {
+                return { ...card, opened: true, completed: true };
+              } else {
+                return card;
+              }
+            })
+          );
+        } else {
+          setCards((currentCard) =>
+            currentCard.map((card) => {
+              if (card.id === firstCard.id || card.id === secondCard.id) {
+                return { ...card, opened: false, completed: false };
+              } else {
+                return card;
+              }
+            })
+          );
+        }
+      }
+    }, 2000);
+  }, [cards]);
 
   const openCard = (event, id) => {
     event.preventDefault();
@@ -50,43 +83,15 @@ function App() {
 
     if (findCard == null) throw new Error("Error finding cards.");
 
-    const openedCards = cards.filter((card) => card.opened);
-    if (openedCards.length == 1) {
-      const [firstCard] = openedCards;
-      const secondCard = findCard;
-
-      if (firstCard.description === secondCard.description) {
-        setCards((currentCard) =>
-          currentCard.map((card) => {
-            if (card.id === firstCard.id || card.id === secondCard.id) {
-              return { ...card, opened: true, completed: true };
-            } 
-            return card;
-          })
-        );
-      } else {
-        setCards((currentCard) =>
-          currentCard.map((card) => {
-            if (!card.completed) {
-              return { ...card, opened: false, completed: false };
-            }
-            return card;
-          })
-        );
-      }
-    } else {
-      setCards((currentCard) =>
-        currentCard.map((card) => {
-          if (card.id === id) {
-            return { ...card, opened: true };
-          } else {
-            return card;
-          }
-        })
-      );
-    }
-
-    // setOpenedCardsCounter(currentCounter => currentCounter + 1);
+    setCards((currentCard) =>
+      currentCard.map((card) => {
+        if (card.id === id) {
+          return { ...card, opened: true };
+        } else {
+          return card;
+        }
+      })
+    );
   };
 
   return (
