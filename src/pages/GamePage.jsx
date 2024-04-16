@@ -47,8 +47,8 @@ const GamePage = () => {
   };
 
   return (
-    <div className="container mx-auto flex justify-center h-screen p-10">
-      <section className="px-6 grid grid-cols-3 gap-6 w-full">
+    <div className="container mx-auto">
+      <section className="px-6 grid grid-cols-card-size gap-3 w-full">
         {cards.map((card) => (
           <Card key={card.id} {...card} openCard={openCard}></Card>
         ))}
