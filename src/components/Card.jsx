@@ -1,4 +1,4 @@
-const Card = ({ color = "red", id, description, open, completed, openCard, disabled }) => {
+const Card = ({ color = "red", id, description, open, completed, openCard, processingMatch }) => {
   return (
     <>
       {completed ? (
@@ -8,7 +8,7 @@ const Card = ({ color = "red", id, description, open, completed, openCard, disab
           {description}
         </div>
       ) : (
-        <div onClick={(e) => !disabled && openCard(e, id)} className={`p-6 rounded-lg bg-gray-300 hover:bg-gray-500 transition duration-300`}
+        <div onClick={(e) => !processingMatch && openCard(e, id)} className={`p-6 rounded-lg bg-gray-300 hover:bg-gray-500 transition duration-300`}
           >
         </div>
       )}

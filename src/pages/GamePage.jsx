@@ -11,28 +11,16 @@ const GamePage = () => {
 
       if (openedCards.length == 2) {
         const [firstCard, secondCard] = openedCards;
+        const matchedCard = firstCard.description === secondCard.description;
 
-        if (firstCard.description === secondCard.description) {
-          setCards((currentCard) =>
-            currentCard.map((card) => {
-              if (card.id === firstCard.id || card.id === secondCard.id) {
-                return { ...card, open: false, completed: true };
-              } else {
-                return card;
-              }
+        setCards(currentCards => {
+            return currentCards.map(card => {
+                if (card.id === firstCard.id || card.id === secondCard.id)
+                    return { ...card, open: false, completed: matchedCard, processingMatch: false };
+
+                return { ...card, processingMatch: false }
             })
-          );
-        } else {
-          setCards((currentCard) =>
-            currentCard.map((card) => {
-              if (card.id === firstCard.id || card.id === secondCard.id) {
-                return { ...card, open: false, completed: false, disabled: false };
-              } else {
-                return { ...card, disabled: false };
-              }
-            })
-          );
-        }
+        })
       }
     }, 1500);
 
@@ -45,16 +33,13 @@ const GamePage = () => {
 
   const openCard = (event, id) => {
     event.preventDefault();
-
-    const findCard = cards.find((card) => card.id === id);
-    if (findCard == null) throw new Error("Error finding cards.");
-
+    
     const openedCards = getOpenedCards();
 
     setCards((currentCard) =>
       currentCard.map((card) => {
         if (card.id === id) return { ...card, open: true, completed: false };
-        if (openedCards.length == 1) return { ...card, disabled: true };
+        if (openedCards.length == 1) return { ...card, processingMatch: true };
         
         return card;
       })
