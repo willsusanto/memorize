@@ -13,14 +13,18 @@ const GamePage = () => {
         const [firstCard, secondCard] = openedCards;
         const matchedCard = firstCard.description === secondCard.description;
 
-        setCards(currentCards => {
-            return currentCards.map(card => {
-                if (card.id === firstCard.id || card.id === secondCard.id)
-                    return { ...card, open: false, completed: matchedCard, processingMatch: false };
+        setCards((currentCards) => {
+          return currentCards.map((card) => {
+            if (card.id === firstCard.id || card.id === secondCard.id)
+              return {
+                ...card,
+                open: false,
+                matched: matchedCard
+              };
 
-                return { ...card, processingMatch: false }
-            })
-        })
+            return  card;
+          });
+        });
       }
     }, 1500);
 
@@ -28,19 +32,18 @@ const GamePage = () => {
   }, [cards]);
 
   const getOpenedCards = () => {
-    return cards.filter((card) => card.open && !card.completed);
+    return cards.filter((card) => card.open && !card.matched);
   };
 
   const openCard = (event, id) => {
     event.preventDefault();
-    
+
     const openedCards = getOpenedCards();
+    if (openedCards.length == 2) return;
 
     setCards((currentCard) =>
       currentCard.map((card) => {
-        if (card.id === id) return { ...card, open: true, completed: false };
-        if (openedCards.length == 1) return { ...card, processingMatch: true };
-        
+        if (card.id === id) return { ...card, open: true, matched: false };
         return card;
       })
     );

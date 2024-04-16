@@ -2,22 +2,22 @@ const Card = ({
   id,
   description,
   open,
-  completed,
+  matched,
   processingMatch,
   openCard,
 }) => {
   const defaultStyling = "p-6 rounded-lg aspect-square shadow-lg";
   return (
     <>
-      {completed && <div className={`${defaultStyling} bg-black`}></div>}
-      {open && !completed && (
+      {matched && <div className={`${defaultStyling} bg-black`}></div>}
+      {open && !matched && (
         <div className={`${defaultStyling} bg-blue-500 hover:bg-blue-700`}>
           {description}
         </div>
       )}
-      {!open && !completed && (
+      {!open && !matched && (
         <div
-          onClick={(e) => !processingMatch && openCard(e, id)}
+          onClick={(e) => openCard(e, id)}
           className={`${defaultStyling} bg-gray-300 hover:bg-gray-500 transition duration-300`}
         ></div>
       )}
