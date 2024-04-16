@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Card from "../components/Card";
 import cardsData from "../data/data.json";
 
@@ -48,7 +48,7 @@ const GamePage = () => {
 
   return (
     <div className="container mx-auto">
-      <section className="px-6 grid grid-cols-card-size gap-3 w-full">
+      <section className="px-6 grid grid-cols-card-size gap-5 w-full">
         {cards.map((card) => (
           <Card key={card.id} {...card} openCard={openCard}></Card>
         ))}
