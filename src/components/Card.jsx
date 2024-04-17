@@ -1,3 +1,5 @@
+import CardBack from "../assets/back.png";
+
 const Card = ({
   id,
   description,
@@ -6,7 +8,7 @@ const Card = ({
   processingMatch,
   openCard,
 }) => {
-  const defaultStyling = "p-6 rounded-lg aspect-square";
+  const defaultStyling = "rounded-lg aspect-square flex justify-center";
   return (
     <>
       {completed && <div className={`${defaultStyling} bg-black`}></div>}
@@ -18,8 +20,10 @@ const Card = ({
       {!open && (
         <div
           onClick={(e) => !processingMatch && openCard(e, id)}
-          className={`${defaultStyling} bg-gray-300 hover:bg-gray-500 transition duration-300`}
-        ></div>
+          className={`${defaultStyling} bg-card-back hover:bg-gray-500 transition duration-300`}
+        >
+          <img src={CardBack} className="object-contain"></img>
+        </div>
       )}
     </>
   );

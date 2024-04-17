@@ -8,6 +8,9 @@ export default {
     extend: {
       gridTemplateColumns: {
         "card-size": "repeat(3, minmax(2rem, 500px))"
+      },
+      colors: {
+        "card-back": "#252525"
       }
     },
   },
