@@ -22,7 +22,7 @@ body {
   transform-style: preserve-3d;
 }
 
-.flipCard:hover {
+.rotating {
     transform: rotateY(180deg);
 }
 
