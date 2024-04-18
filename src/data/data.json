@@ -1,44 +1,50 @@
 [
   {
     "id": "1",
-    "description": "Xiao",
+    "description": "Childe",
     "open": false,
     "completed": false,
-    "disabled": false
+    "disabled": false,
+    "imagePath": "../assets/front/Childe.png"
   },
   {
     "id": "2",
-    "description": "Diluc",
+    "description": "Navia",
     "opened": false,
     "completed": false,
-    "disabled": false
+    "disabled": false,
+    "imagePath": "../assets/front/Navia.png"
   },
   {
     "id": "3",
     "description": "Raiden",
     "opened": false,
     "completed": false,
-    "disabled": false
+    "disabled": false,
+    "imagePath": "../assets/front/Navia.png"
   },
   {
     "id": "4",
     "description": "Ganyu",
     "opened": false,
     "completed": false,
-    "disabled": false
+    "disabled": false,
+    "imagePath": "../assets/front/Navia.png"
   },
   {
     "id": "5",
     "description": "Hu Tao",
     "opened": false,
     "completed": false,
-    "disabled": false
+    "disabled": false,
+    "imagePath": "../assets/front/Navia.png"
   },
   {
     "id": "6",
     "description": "Xiao",
     "opened": false,
     "completed": false,
-    "disabled": false
+    "disabled": false,
+    "imagePath": "../assets/front/Navia.png"
   }
 ]
