@@ -1,5 +1,4 @@
 import CardBack from "../assets/back.png";
-import { useRef, useEffect } from "react";
 
 const Card = ({
   id,
@@ -10,13 +9,6 @@ const Card = ({
   openCard,
 }) => {
   const defaultStyling = "rounded-lg aspect-square flex justify-center";
-  const flipCard = useRef(null);
-
-  useEffect(() => {
-    if (open) {
-      flipCard.current.classList.add("rotating");
-    } else flipCard.current.classList.remove("rotating");
-  }, [open]);
 
   const handleRotate = (e, id) => {
     openCard(e, id);
@@ -39,9 +31,8 @@ const Card = ({
       {completed && <div className={`${defaultStyling} bg-black`}></div>}
 
       <div
-        ref={flipCard}
         onClick={(e) => handleRotate(e, id, true)}
-        className={`${defaultStyling} transition duration-300 relative flipCard`}
+        className={`${defaultStyling} transition duration-300 relative flipCard ${open ? "rotating" : ""}`}
       >
         <div className="front bg-white">{description}</div>
 
