@@ -4,7 +4,6 @@ import cardsData from "../data/data.json";
 
 const GamePage = () => {
   const [cards, setCards] = useState(cardsData);
-  const flipCard = useRef(null);
 
   useEffect(() => {
     const cardTimeoutDelay = setTimeout(() => {
@@ -52,33 +51,16 @@ const GamePage = () => {
     );
   };
 
-  const handleRotate = (rotate) => {
-    console.log(flipCard);
-    if (rotate) flipCard.current.classList.add("rotating");
-    else flipCard.current.classList.remove("rotating");
-  };
-
   return (
     <>
-    <button onClick={() => handleRotate(false)}>Rotate back</button>
-      <div className="flipCardContainer">
-        <div
-          ref={flipCard}
-          className="flipCard"
-          onClick={() => handleRotate(true)}
-        >
-          <div className="front">Testing FRONT</div>
-          <div className="back">Testing BACK</div>
-        </div>
+      <div className="container mx-auto">
+        <section className="px-6 grid grid-cols-card-size gap-3 w-full">
+          {cards.map((card) => (
+            <Card key={card.id} {...card} openCard={openCard}></Card>
+          ))}
+        </section>
       </div>
     </>
-    // <div className="container mx-auto">
-    //   <section className="px-6 grid grid-cols-card-size gap-3 w-full">
-    //     {cards.map((card) => (
-    //       <Card key={card.id} {...card} openCard={openCard}></Card>
-    //     ))}
-    //   </section>
-    // </div>
   );
 };
 

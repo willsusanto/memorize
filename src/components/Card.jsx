@@ -1,4 +1,5 @@
 import CardBack from "../assets/back.png";
+import { useRef, useEffect } from "react";
 
 const Card = ({
   id,
@@ -9,22 +10,45 @@ const Card = ({
   openCard,
 }) => {
   const defaultStyling = "rounded-lg aspect-square flex justify-center";
+  const flipCard = useRef(null);
+
+  useEffect(() => {
+    if (open) {
+      flipCard.current.classList.add("rotating");
+    } else flipCard.current.classList.remove("rotating");
+  }, [open]);
+
+  const handleRotate = (e, id) => {
+    openCard(e, id);
+  };
+
   return (
     <>
-      {completed && <div className={`${defaultStyling} bg-black`}></div>}
-      {open && (
-        <div className={`${defaultStyling} bg-blue-500 hover:bg-blue-700`}>
-          {description}
-        </div>
-      )}
-      {!open && (
+      {/* <button onClick={() => handleRotate(false)}>Rotate back</button>
+      <div className="flipCardContainer">
         <div
-          onClick={(e) => !processingMatch && openCard(e, id)}
-          className={`${defaultStyling} bg-card-back hover:bg-gray-500 transition duration-300`}
+          ref={flipCard}
+          className="flipCard"
+          onClick={() => handleRotate(true)}
         >
+          <div className="front">Testing FRONT</div>
+          <div className="back">Testing BACK</div>
+        </div>
+      </div> */}
+
+      {completed && <div className={`${defaultStyling} bg-black`}></div>}
+
+      <div
+        ref={flipCard}
+        onClick={(e) => handleRotate(e, id, true)}
+        className={`${defaultStyling} transition duration-300 relative flipCard`}
+      >
+        <div className="front bg-white">{description}</div>
+
+        <div className="back bg-card-back">
           <img src={CardBack} className="object-contain"></img>
         </div>
-      )}
+      </div>
     </>
   );
 };
