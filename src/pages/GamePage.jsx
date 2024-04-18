@@ -51,7 +51,7 @@ const GamePage = () => {
 
   return (
     <div className="container mx-auto py-10">
-      <section className="px-6 grid grid-cols-card-size gap-5 w-full">
+      <section className="px-6 grid grid-cols-card-size gap-10 w-full">
         {cards.map((card) => (
           <Card key={card.id} {...card} openCard={openCard}></Card>
         ))}

@@ -11,6 +11,9 @@ export default {
       },
       colors: {
         "card-back": "#252525"
+      },
+      borderRadius: {
+        "card-edge": "2rem"
       }
     },
   },
