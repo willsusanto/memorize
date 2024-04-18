@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import cardsData from "../data/data.json";
 
@@ -50,7 +50,7 @@ const GamePage = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto py-10">
       <section className="px-6 grid grid-cols-card-size gap-5 w-full">
         {cards.map((card) => (
           <Card key={card.id} {...card} openCard={openCard}></Card>
