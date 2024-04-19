@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
-import cardsData from "../data/data.json";
+import fronts from "../data/fronts.json";
+import getCards from "../generator/getCards";
 
 const GamePage = () => {
-  const [cards, setCards] = useState(cardsData);
+  const [cards, setCards] = useState(getCards(fronts));
 
   useEffect(() => {
     const cardTimeoutDelay = setTimeout(() => {
