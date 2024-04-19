@@ -4,7 +4,7 @@ import fronts from "../data/fronts.json";
 import getCards from "../generator/getCards";
 
 const GamePage = () => {
-  const [cards, setCards] = useState(getCards(fronts));
+  const [cards, setCards] = useState(() => getCards(fronts));
 
   useEffect(() => {
     const cardTimeoutDelay = setTimeout(() => {

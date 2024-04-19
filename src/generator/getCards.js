@@ -63,9 +63,6 @@ const getCards = (fronts) => {
   const cards = selectCards(fronts, cardsQuantity);
   const shuffledCards = shuffleCards(cards, cardsQuantity);
 
-  console.table("Cards before shuffled: ", cards);
-  console.table("Cards after shuffled: ", shuffledCards);
-
   return shuffledCards;
 };
 
