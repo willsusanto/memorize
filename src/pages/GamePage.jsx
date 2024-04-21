@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import fronts from "../data/fronts.json";
 import getCards from "../generator/getCards";
+import getHealth from "../generator/getHealth";
 import HealthBar from "../components/HealthBar";
-import config from "../data/config.json";
 
 const GamePage = () => {
   const [cards, setCards] = useState(() => getCards(fronts));
-  const [health, setHealth] = useState(config.HEALTH_BAR);
+  const [health, setHealth] = useState(() => getHealth());
 
   useEffect(() => {
     const cardTimeoutDelay = setTimeout(() => {
@@ -59,9 +59,9 @@ const GamePage = () => {
       <div id="star-gradient-overlay"></div>
 
       <div className="container relative z-[2] mx-auto flex flex-col items-center py-10">
-        <HealthBar />
-
         <section className="grid grid-cols-card-size-2 gap-10 px-6 md:grid-cols-card-size">
+          <HealthBar/>
+
           {cards.map((card) => (
             <Card key={card.id} {...card} openCard={openCard}></Card>
           ))}
