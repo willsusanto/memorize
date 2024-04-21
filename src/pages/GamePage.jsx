@@ -53,7 +53,9 @@ const GamePage = () => {
   return (
     <div id="star-container">
       <div id="star-pattern"></div>
-      <div className="container mx-auto flex justify-center py-10">
+      <div id="star-gradient-overlay"></div>
+
+      <div className="container mx-auto flex justify-center py-10 relative z-[2]">
         <section className="grid grid-cols-card-size gap-10 px-6">
           {cards.map((card) => (
             <Card key={card.id} {...card} openCard={openCard}></Card>

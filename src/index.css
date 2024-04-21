@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root { 
+  --light-gold-rgb: 255 217 0;
+  --dark-gold-rgb: 215 147 23;
+  
+  --primary-stripe-rgb: 230 230 230;
+  --secondary-stripe-rgb: 240 240 240;
+}
+
 body {
   background: whitesmoke;
 }
@@ -27,25 +35,34 @@ body {
 }
 
 #star-container {
-  height: 100dvh;
+  height: 100vh;
   overflow: auto;
   position: relative;
-  background-color: orange;
+  background: radial-gradient(rgb(var(--light-gold-rgb)), rgb(var(--dark-gold-rgb)));
 }
 
 #star-pattern {
   background-image: url("./assets/star.svg");
   background-size: 10%;  
-  position: absolute;
-  left: 50%;
-  top: 0px;
-  translate: -50% 0%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 0;
+  opacity: 0.15;
+  width: 100%;
+  height: 100%;
+  animation: star-pan 200s linear infinite;
+  will-change: background-position;
+}
+
+#star-gradient-overlay {
+  background: radial-gradient(circle, transparent 50% , rgb(var(--dark-gold-rgb)));
+  position: fixed;
+  z-index: 1;
   height: 100%;
   width: 100%;
-  opacity: 0.15;
-  animation: star-pan 180s linear infinite;
-  will-change: background-position;
 }
 
 @keyframes star-pan {
