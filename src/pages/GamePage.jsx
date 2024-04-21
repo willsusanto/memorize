@@ -55,8 +55,8 @@ const GamePage = () => {
       <div id="star-pattern"></div>
       <div id="star-gradient-overlay"></div>
 
-      <div className="container mx-auto flex justify-center py-10 relative z-[2]">
-        <section className="grid grid-cols-card-size gap-10 px-6">
+      <div className="container relative z-[2] mx-auto flex justify-center py-10">
+        <section className="grid grid-cols-card-size-2 gap-10 px-6 md:grid-cols-card-size">
           {cards.map((card) => (
             <Card key={card.id} {...card} openCard={openCard}></Card>
           ))}
