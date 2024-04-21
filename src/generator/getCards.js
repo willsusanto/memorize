@@ -1,3 +1,5 @@
+import config from "../data/config.json"
+
 class CardData {
   constructor(id, frontId, description, fileName) {
     this.id = id; //Randomly generated
@@ -56,7 +58,7 @@ const shuffleCards = (selectedCards, cardsQuantity) => {
 };
 
 const getCards = (fronts) => {
-  const cardsQuantity = 8;
+  const cardsQuantity = config.CARD_QUANTITY;
   if (fronts.length === 0) throw new Error("There's no front cards data!");
   if (cardsQuantity % 2) throw new Error("Please input an even card quantity.");
 
