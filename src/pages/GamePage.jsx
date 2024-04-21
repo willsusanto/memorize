@@ -20,10 +20,10 @@ const GamePage = () => {
               return {
                 ...card,
                 open: false,
-                matched: matchedCard
+                matched: matchedCard,
               };
 
-            return  card;
+            return card;
           });
         });
       }
@@ -46,17 +46,20 @@ const GamePage = () => {
       currentCard.map((card) => {
         if (card.id === id) return { ...card, open: true, matched: false };
         return card;
-      })
+      }),
     );
   };
 
   return (
-    <div className="container mx-auto py-10">
-      <section className="px-6 grid grid-cols-card-size gap-10 w-full">
-        {cards.map((card) => (
-          <Card key={card.id} {...card} openCard={openCard}></Card>
-        ))}
-      </section>
+    <div id="star-container">
+      <div id="star-pattern"></div>
+      <div className="container mx-auto flex justify-center py-10">
+        <section className="grid grid-cols-card-size gap-10 px-6">
+          {cards.map((card) => (
+            <Card key={card.id} {...card} openCard={openCard}></Card>
+          ))}
+        </section>
+      </div>
     </div>
   );
 };

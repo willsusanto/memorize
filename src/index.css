@@ -25,3 +25,34 @@ body {
   display: flex;
   justify-content: center;
 }
+
+#star-container {
+  height: 100dvh;
+  overflow: auto;
+  position: relative;
+  background-color: orange;
+}
+
+#star-pattern {
+  background-image: url("./assets/star.svg");
+  background-size: 10%;  
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  translate: -50% 0%;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.15;
+  animation: star-pan 180s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes star-pan {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}

@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        "card-size": "repeat(3, minmax(2rem, 500px))"
+        "card-size": "repeat(3, minmax(1rem, 300px))"
       },
       colors: {
         "card-back": "#252525"
