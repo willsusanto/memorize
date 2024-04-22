@@ -1,3 +1,4 @@
+import fronts from "../data/fronts.json";
 import config from "../data/config.json"
 
 class CardData {
@@ -57,7 +58,7 @@ const shuffleCards = (selectedCards, cardsQuantity) => {
   return selectedCards;
 };
 
-const getCards = (fronts) => {
+const getCards = () => {
   const cardsQuantity = config.CARD_QUANTITY;
   if (fronts.length === 0) throw new Error("There's no front cards data!");
   if (cardsQuantity % 2) throw new Error("Please input an even card quantity.");

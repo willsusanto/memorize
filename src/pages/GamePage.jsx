@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
-import fronts from "../data/fronts.json";
 import getCards from "../generator/getCards";
 import getHealth from "../generator/getHealth";
 import HealthBar from "../components/HealthBar";
 import Modal from "../components/Modal";
 
 const GamePage = () => {
-  const [cards, setCards] = useState(() => getCards(fronts));
+  const [cards, setCards] = useState(() => getCards());
   const [health, setHealth] = useState(() => getHealth());
   const [isGameOver, setIsGameOver] = useState(false);
 
@@ -54,7 +53,7 @@ const GamePage = () => {
           if (availableHealth === 1) setIsGameOver((currentGameOver) => !currentGameOver);
         }
       }
-    }, 1500);
+    }, 1000);
 
     return () => clearTimeout(cardTimeoutDelay);
   }, [cards]);
@@ -77,12 +76,18 @@ const GamePage = () => {
     );
   };
 
+  const resetGame = () => {
+    setCards(getCards());
+    setHealth(getHealth());
+    setIsGameOver(false);
+  }
+
   return (
     <div id="star-container">
       <div id="star-pattern"></div>
       <div id="star-gradient-overlay"></div>
 
-      <Modal isModalOpen={isGameOver}></Modal>
+      <Modal isModalOpen={isGameOver} resetGame={resetGame}></Modal>
 
       <div className="container relative z-[2] mx-auto flex flex-col items-center py-10">
         <section className="grid grid-cols-card-size-2 gap-10 px-6 md:grid-cols-card-size">
