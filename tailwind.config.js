@@ -11,7 +11,9 @@ export default {
         "card-size-2": "repeat(2, minmax(1rem, 200px))"
       },
       colors: {
-        "card-back": "#252525"
+        "card-back": "#252525",
+        "light-gold": "rgb(255, 217, 0)",
+        "dark-gold": "rgb(215, 147, 23)"
       },
       borderRadius: {
         "card-edge": "2rem"

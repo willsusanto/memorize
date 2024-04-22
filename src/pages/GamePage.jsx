@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import fronts from "../data/fronts.json";
 import getCards from "../generator/getCards";
