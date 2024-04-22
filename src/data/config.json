@@ -1,4 +1,8 @@
 {
-    "CARD_QUANTITY": 8,
-    "HEALTH_BAR": 2
+    "CARD_QUANTITY": 4,
+    "HEALTH_BAR": 2,
+    "MODAL_MODE": {
+        "GAME_OVER": "GAME_OVER",
+        "SUCCESS": "SUCCESS"
+    }
 }

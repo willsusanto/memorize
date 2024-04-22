@@ -4,11 +4,13 @@ import getCards from "../generator/getCards";
 import getHealth from "../generator/getHealth";
 import HealthBar from "../components/HealthBar";
 import Modal from "../components/Modal";
+import config from "../data/config.json";
 
 const GamePage = () => {
   const [cards, setCards] = useState(() => getCards());
   const [health, setHealth] = useState(() => getHealth());
-  const [isGameOver, setIsGameOver] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState(null);
 
   useEffect(() => {
     const cardTimeoutDelay = setTimeout(() => {
@@ -50,7 +52,18 @@ const GamePage = () => {
 
           /* If available health from previous render === 1, then it's game over. */
           const availableHealth = health.filter((bar) => bar.active)?.length;
-          if (availableHealth === 1) setIsGameOver((currentGameOver) => !currentGameOver);
+          if (availableHealth === 1) {
+            setIsModalOpen(true);
+            setModalMode(config.MODAL_MODE.GAME_OVER);
+          }
+          return;
+        }
+
+        /* If cards not matched === 2, it's remainder from the previous render. */
+        const allCardsMatched = cards.filter(card => !card.matched);
+        if (allCardsMatched.length === 2) {
+          setIsModalOpen(true);
+          setModalMode(config.MODAL_MODE.SUCCESS);
         }
       }
     }, 1000);
@@ -79,7 +92,7 @@ const GamePage = () => {
   const resetGame = () => {
     setCards(getCards());
     setHealth(getHealth());
-    setIsGameOver(false);
+    setIsModalOpen(false);
   }
 
   return (
@@ -87,7 +100,7 @@ const GamePage = () => {
       <div id="star-pattern"></div>
       <div id="star-gradient-overlay"></div>
 
-      <Modal isModalOpen={isGameOver} resetGame={resetGame}></Modal>
+      <Modal isModalOpen={isModalOpen} resetGame={resetGame} mode={modalMode}></Modal>
 
       <div className="container relative z-[2] mx-auto flex flex-col items-center py-10">
         <section className="grid grid-cols-card-size-2 gap-10 px-6 md:grid-cols-card-size">
