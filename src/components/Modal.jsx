@@ -29,13 +29,13 @@ const Modal = ({ isModalOpen, resetGame, mode }) => {
       <div className="mt-2 flex flex-col items-center justify-between gap-4 p-3">
         {mode === config.MODAL_MODE.GAME_OVER && (
           <>
-            <h1 className="text-3xl font-bold font-genshin">Game Over!</h1>
+            <h1 className="text-3xl font-bold font-genshin px-2 text-red-600">Game Over!</h1>
             <img src={GameOver} className="h-52"></img>
           </>
         )}
         {mode === config.MODAL_MODE.SUCCESS && (
           <>
-            <h1 className="text-3xl font-genshin">Congratulations!</h1>
+            <h1 className="text-3xl font-genshin px-2 text-green-600">Congratulations!</h1>
             <img src={Success} className="h-52"></img>
           </>
         )}
