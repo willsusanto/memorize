@@ -19,17 +19,18 @@ const Card = ({ id, description, open, matched, openCard, fileName }) => {
           onClick={(e) => openCard(e, id)}
           className={`flipCardBase relative transition duration-500 ${open && "flipping"} ${defaultStyling}`}
         >
-          <div className={`front flipping rounded-card-edge bg-blue-100`}>
-            {loading && <h1 className="font-genshin">Image loading...</h1>}
-            {!loading && (
-              <img src={image} className="rounded-card-edge object-contain" alt={description}/>
-            )}
-          </div>
           <div className="back rounded-card-edge bg-card-back transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-105 hover:brightness-105">
             <img
               src={CardBack}
               className="rounded-card-edge object-contain"
             ></img>
+          </div>
+
+          <div className={`front flipping rounded-card-edge bg-blue-100`}>
+            {loading && <h1 className="font-genshin">Image loading...</h1>}
+            {!loading && (
+              <img src={image} className="rounded-card-edge object-contain" alt={description}/>
+            )}
           </div>
         </div>
       )}
