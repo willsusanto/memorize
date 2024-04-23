@@ -1,6 +1,6 @@
 {
-    "CARD_QUANTITY": 4,
-    "HEALTH_BAR": 2,
+    "CARD_QUANTITY": 6,
+    "HEALTH_BAR": 5,
     "MODAL_MODE": {
         "GAME_OVER": "GAME_OVER",
         "SUCCESS": "SUCCESS"
