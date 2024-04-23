@@ -1,8 +1,8 @@
-# React + Vite
+# Genshin Impact Card Memorize Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a memory card game inspired by the popular game Genshin Impact. The objective is to flip over cards and find matching pairs. The game features a health bar that decreases each time you fail to find a match. The game ends when you either find all matching pairs or run out of health.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- Tailwind CSS
