@@ -21,7 +21,7 @@ const Card = ({ id, description, open, matched, openCard, fileName }) => {
             {!loading && <img src={image} className="object-contain rounded-card-edge" />}
           </div>
 
-          <div className="back bg-card-back rounded-card-edge">
+          <div className="back bg-card-back rounded-card-edge transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-105  hover:brightness-105">
             <img src={CardBack} className="object-contain rounded-card-edge"></img>
           </div>
         </div>
