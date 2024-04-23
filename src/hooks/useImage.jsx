@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
 
-// function artificialTimeout(ms) {
-//   return new Promise((resolve) => setTimeout(resolve, ms));
-// }
-
 export function useImage(fileName) {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(true);
