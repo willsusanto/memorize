@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face{
+  font-family: 'Genshin';
+  src: url('./assets/zh-cn.ttf');
+}
+
 :root { 
   --light-gold-rgb: 255 217 0;
   --dark-gold-rgb: 215 147 23;

@@ -6,7 +6,7 @@ const Card = ({ id, description, open, matched, openCard, fileName }) => {
   const defaultStyling =
     "rounded-card-edge aspect-square flex justify-center shadow-[0px_5px_16px_1px_rgba(0,0,0,0.5)]";
 
-  if (error) return <h1>Sorry! An error had occurred: {error.message}</h1>;
+  if (error) return <h1 className="font-genshin">Sorry! An error had occurred: {error.message}</h1>;
 
   return (
     <>
@@ -20,7 +20,7 @@ const Card = ({ id, description, open, matched, openCard, fileName }) => {
           className={`flipCardBase relative transition duration-500 ${open && "flipping"} ${defaultStyling}`}
         >
           <div className={`front flipping rounded-card-edge bg-blue-100`}>
-            {loading && <h1>Image loading...</h1>}
+            {loading && <h1 className="font-genshin">Image loading...</h1>}
             {!loading && (
               <img src={image} className="rounded-card-edge object-contain" />
             )}

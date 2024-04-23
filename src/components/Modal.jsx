@@ -29,20 +29,20 @@ const Modal = ({ isModalOpen, resetGame, mode }) => {
       <div className="mt-2 flex flex-col items-center justify-between gap-4 p-3">
         {mode === config.MODAL_MODE.GAME_OVER && (
           <>
-            <h1 className="text-3xl font-bold">Game Over!</h1>
+            <h1 className="text-3xl font-bold font-genshin">Game Over!</h1>
             <img src={GameOver} className="h-52"></img>
           </>
         )}
         {mode === config.MODAL_MODE.SUCCESS && (
           <>
-            <h1 className="text-3xl font-bold">Congratulations!</h1>
+            <h1 className="text-3xl font-genshin">Congratulations!</h1>
             <img src={Success} className="h-52"></img>
           </>
         )}
 
         <button
           onClick={resetGame}
-          className="bg-light-gold hover:bg-dark-gold rounded-lg px-4 py-2 text-xl transition duration-200"
+          className="hover:bg-even-lighter-gold bg-light-gold rounded-lg px-4 py-2 text-xl transition ease-in-out duration-200 font-genshin"
         >
           Restart!
         </button>
